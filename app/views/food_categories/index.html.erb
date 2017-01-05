@@ -16,8 +16,20 @@
 
       <% @food_categories.each do |food_category| %>
       <tr>
-        <td><%= food_category.cousine.name %></td>
-        <td><%= food_category.dish.name %></td>
+        <td>
+          <% if food_category.cousine.present? %>
+            <a href="/cousines/<%= food_category.cousine.id %>">
+              <%= food_category.cousine.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if food_category.dish.present? %>
+            <a href="/dishes/<%= food_category.dish.id %>">
+              <%= food_category.dish.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/food_categories/<%= food_category.id %>" class="btn btn-primary">Show</a>
           <a href="/food_categories/<%= food_category.id %>/edit" class="btn btn-warning">Edit</a>
