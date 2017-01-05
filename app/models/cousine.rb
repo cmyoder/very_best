@@ -6,6 +6,10 @@ class Cousine < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :dishes,
+             :through => :food_categories,
+             :source => :dish
+
   # Validations
 
 end
