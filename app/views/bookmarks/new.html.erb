@@ -24,7 +24,7 @@
           Adder
         </label>
 
-        <input type="text" id="adder_id" name="adder_id" placeholder="Adder" class="form-control" value="<%= @bookmark.adder_id %>">
+        <%= select_tag(:adder_id, options_from_collection_for_select(User.all, :id, :name, @bookmark.adder_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for dish_id -->
