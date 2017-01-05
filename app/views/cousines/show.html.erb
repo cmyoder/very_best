@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Cousine has many food_categories -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Food Categories
+      </li>
+
+      <% @cousine.food_categories.each do |food_category| %>
+        <li class="list-group-item">
+          <a href="/food_categories/<%= food_category.id %>">
+            <%= food_category.cousine_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/food_categories/<%= food_category.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/food_categories/<%= food_category.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_food_category/<%= food_category.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cousine has many dishes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Dishes
+      </li>
+
+      <% @cousine.dishes.each do |dish| %>
+        <li class="list-group-item">
+          <a href="/dishes/<%= dish.id %>">
+            <%= dish.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_dish/<%= dish.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
